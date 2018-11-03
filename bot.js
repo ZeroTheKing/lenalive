@@ -1,16 +1,42 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
-var prefix = "+";
-client.on('ready', () => {
-   console.log(`----------------`);
-      console.log(`Cyhper Bot Script By : DREAM`);
-        console.log(`----------------`);
-      console.log(`ON ${client.guilds.size} Servers '     Script By : DREAM ' `);
-    console.log(`----------------`);
-  console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`TEXT`,"http://twitch.tv/Dream")
-client.user.setStatus("dnd")
+var prefix = "d";
+var adminprefix = 'l'
+const developers = ["475336980125712384"]
+client.on('message', message => {
+    var argresult = message.content.split(` `).slice(1).join(' ');
+      if (!developers.includes(message.author.id)) return;
+      
+  if (message.content.startsWith(adminprefix + 'setg')) {
+    client.user.setGame(argresult);
+      message.channel.send(`**?   ${argresult}**`)
+  } else 
+     if (message.content === (adminprefix + "leave")) {
+    message.guild.leave();        
+  } else  
+  if (message.content.startsWith(adminprefix + 'setw')) {
+  client.user.setActivity(argresult, {type:'WATCHING'});
+      message.channel.send(`:middle_finger: From 1   ${argresult}**`)
+  } else 
+  if (message.content.startsWith(adminprefix + 'setl')) {
+  client.user.setActivity(argresult , {type:'LISTENING'});
+      message.channel.send(`:middle_finger: From 1   ${argresult}**`)
+  } else 
+  if (message.content.startsWith(adminprefix + 'sets')) {
+    client.user.setGame(argresult, "https://www.twitch.tv/One");
+      message.channel.send(`:middle_finger: From 1`)
+  }
+  if (message.content.startsWith(adminprefix + 'setname')) {
+  client.user.setUsername(argresult).then
+      message.channel.send(`Changing The Name To ..**${argresult}** `)
+} else
+if (message.content.startsWith(adminprefix + 'setavatar')) {
+  client.user.setAvatar(argresult);
+    message.channel.send(`Changing The Avatar To :**${argresult}** `);
+}
 });
+
+
 
 
 
