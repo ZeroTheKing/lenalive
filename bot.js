@@ -1,26 +1,26 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 var prefix = "d";
-var adminprefix = 'l'
-const developers = ["475336980125712384"]
+var adminprefix = 'p'
+const developers = ["462660314765328394"]
 client.on('message', message => {
     var argresult = message.content.split(` `).slice(1).join(' ');
       if (!developers.includes(message.author.id)) return;
       
   if (message.content.startsWith(adminprefix + 'setg')) {
     client.user.setGame(argresult);
-      message.channel.send(`:envelope: By Ayman   ${argresult}**`)
+      message.channel.send(`:envelope: Changing To   ${argresult}**`)
   } else 
      if (message.content === (adminprefix + "leave")) {
     message.guild.leave();        
   } else  
   if (message.content.startsWith(adminprefix + 'setw')) {
   client.user.setActivity(argresult, {type:'WATCHING'});
-      message.channel.send(`:envelope: By Ayman   ${argresult}**`)
+      message.channel.send(`:envelope: Changing To   ${argresult}**`)
   } else 
   if (message.content.startsWith(adminprefix + 'setl')) {
   client.user.setActivity(argresult , {type:'LISTENING'});
-      message.channel.send(`:envelope: By Ayman   ${argresult}**`)
+      message.channel.send(`:envelope: Changing To   ${argresult}**`)
   } else 
   if (message.content.startsWith(adminprefix + 'sets')) {
     client.user.setGame(argresult, "https://www.twitch.tv/One");
